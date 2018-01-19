@@ -1,10 +1,7 @@
 package com.example.laurentgander.physiodatavisualization;
 
 import android.content.Context;
-import android.graphics.drawable.Icon;
-import android.media.Image;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +10,6 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +39,6 @@ public class MeasuresAdapter extends BaseAdapter implements Filterable{
     }
 
     private void construct() {
-
 
         update();
 
@@ -79,6 +72,7 @@ public class MeasuresAdapter extends BaseAdapter implements Filterable{
     }
 
     public void update() {
+
         measures = measureService.findMeasures();
         filteredMeasures = measures;
     }
@@ -98,7 +92,6 @@ public class MeasuresAdapter extends BaseAdapter implements Filterable{
         return position;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -132,8 +125,8 @@ public class MeasuresAdapter extends BaseAdapter implements Filterable{
                 break;
         }
 
-        holder.cenestesisTextView.setText(measures.getCenestesisIndex());
-        holder.dateTextView.setText(measures.getDate().toString());
+        holder.cenestesisTextView.setText(String.valueOf(measures.getCenestesisIndex()));
+        holder.dateTextView.setText(measures.getDate().substring( 0, 10 ));
 
         return convertView;
     }

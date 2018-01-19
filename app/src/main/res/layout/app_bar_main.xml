@@ -22,6 +22,4 @@
 
     <include
         layout="@layout/main_fragment" />
-
-
 </android.support.design.widget.CoordinatorLayout>

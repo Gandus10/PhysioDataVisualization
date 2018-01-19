@@ -3,11 +3,11 @@ package com.example.laurentgander.physiodatavisualization;
 import android.app.Service;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.icu.util.Measure;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,17 +44,13 @@ public class MeasureService  extends Service{
 
     public List<Measures> findMeasures(){return measureRepository.getAllListMeasures();}
 
-    public Measures findMeasure(String date){return measureRepository.getMeasuresByDate(date);}
-
-    public Measures createMeasure(Measures measure)
+    public void createMeasure(int progress, int seekBarSommeilProgress, Integer position, String comment, int heartBeat, int stressIndex, Date date)
     {
-        measure = measureRepository.create(measure);
+        measureRepository.create(progress, seekBarSommeilProgress, position, comment, heartBeat ,stressIndex, date);
 
         Intent intent = new Intent(ACTION_CREATE_MEASURE);
 
         sendBroadcast(intent);
-
-        return measure;
     }
 
     public class LocalBinder extends Binder {

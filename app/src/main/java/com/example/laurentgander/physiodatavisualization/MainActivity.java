@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.design.widget.NavigationView;
@@ -158,19 +157,22 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home){
             HomeFragment homeFragment = new HomeFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment ,homeFragment).commit();
+            homeFragment.onMeasureServiceConnected();
         }
         if (id == R.id.nav_visualisation) {
             VisualisationFragment visualisationFragment = new VisualisationFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment ,visualisationFragment).commit();
+            visualisationFragment.onMeasureServiceConnected();
 
         } else if (id == R.id.nav_analyse) {
             AnalyseFragment analyseFragment = new AnalyseFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, analyseFragment).commit();
+            analyseFragment.onMeasureServiceConnected();
 
         } else if (id == R.id.nav_mesures) {
             MeasuresFragment mesuresFragment = new MeasuresFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment ,mesuresFragment).commit();
-
+            mesuresFragment.onMeasureServiceConnected();
         } else if (id == R.id.nav_share) {
 
         }
@@ -179,7 +181,18 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    protected void notifyFragmentConnected(int id) {
+    }
 
+    /**
+     * Utility function to call the "onGarbageServiceDisconnected" method of fragments.
+     *
+     * Note: currently not used by the application, just here for completion. :)
+     *
+     * @param id The ID of the fragment to notify
+     */
+    protected void notifyFragmentDisconnected(int id) {
+    }
     public MeasureService getService() {
         return service;
     }

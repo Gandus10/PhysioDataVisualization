@@ -1,6 +1,5 @@
 package com.example.laurentgander.physiodatavisualization;
 
-import java.util.List;
 
 /**
  * Created by laurent.gander on 21/11/2017.
@@ -17,7 +16,9 @@ public interface MeasureSchema {
     String COLUMNS_6 = "HEARTBEAT";
     String COLUMNS_7 = "STRESS_INDEX";
     String COLUMNS_8 = "DATE_MEASURES";
-    public String[] tabColumns = new String[]{COLUMNS_1, COLUMNS_2, COLUMNS_3, COLUMNS_4, COLUMNS_5, COLUMNS_6, COLUMNS_7, COLUMNS_8};
+    String COLUMNS_9 = "HOURS_MEASURES";
+
+    String[] tabColumns = new String[]{COLUMNS_1, COLUMNS_2, COLUMNS_3, COLUMNS_4, COLUMNS_5, COLUMNS_6, COLUMNS_7, COLUMNS_8, COLUMNS_9};
 
     String CREATE_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS "
             + TABLE_NAME
@@ -35,8 +36,10 @@ public interface MeasureSchema {
             + " INTEGER, "
             + COLUMNS_7
             + " INTEGER, "
-            + COLUMNS_8 +
-            " TEXT)";
+            + COLUMNS_8
+            + " TEXT, "
+            + COLUMNS_9
+            + " TEXT)";
 
     String DROP_TABLE_QUERY = "DROP TABLE IF EXISTS " + TABLE_NAME;
 }

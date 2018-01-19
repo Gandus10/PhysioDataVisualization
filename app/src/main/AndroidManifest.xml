@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -21,12 +21,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.laurentgander.physiodatavisualization.Activity.PhysioDataActivity"></activity>
+
+        <activity android:name="com.example.laurentgander.physiodatavisualization.Activity.MeasuresDetailActivity"></activity>
         <service
             android:name=".MeasureService" android:enabled="true"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
-
-
         </service>
-    </application>
 
+        <receiver android:name=".CallReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".SMSReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.NEW_SMS_INPUT" />
+            </intent-filter>
+        </receiver>
+    </application>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.flash"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 </manifest>
