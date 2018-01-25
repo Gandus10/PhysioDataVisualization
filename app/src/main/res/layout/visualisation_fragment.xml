@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/visualisation_fragment">
+    android:id="@+id/visualisation_fragment"
+    android:orientation="vertical">
 
     <Spinner
-        android:id="@+id/spinnerDate"
+        android:id="@+id/spinner_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="50dp"
+        />
 
     <com.jjoe64.graphview.GraphView
         android:layout_width="match_parent"
         android:layout_height="200dip"
         android:id="@+id/graph" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

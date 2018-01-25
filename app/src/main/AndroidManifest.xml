@@ -21,15 +21,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.laurentgander.physiodatavisualization.Activity.PhysioDataActivity"></activity>
+        <activity android:name="com.example.laurentgander.physiodatavisualization.HeartBeat.PhysioDataActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.Main"/>
 
-        <activity android:name="com.example.laurentgander.physiodatavisualization.Activity.MeasuresDetailActivity"></activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.example.laurentgander.physiodatavisualization.Activity.MeasuresDetailActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
         <service
-            android:name=".MeasureService" android:enabled="true"
+            android:name=".Measures.MeasureService" android:enabled="true"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
         </service>
 
-        <receiver android:name=".CallReceiver" >
+        <receiver android:name=".Log.CallReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
@@ -37,7 +51,7 @@
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".SMSReceiver">
+        <receiver android:name=".Log.SMSReceiver">
             <intent-filter android:priority="100">
                 <action android:name="android.intent.action.NEW_SMS_INPUT" />
             </intent-filter>

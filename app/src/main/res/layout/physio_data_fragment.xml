@@ -21,11 +21,12 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
-            <com.example.laurentgander.physiodatavisualization.HeartBeatView android:id="@+id/image"
+            <com.example.laurentgander.physiodatavisualization.HeartBeat.HeartBeatView
+                android:id="@+id/image"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-            </com.example.laurentgander.physiodatavisualization.HeartBeatView>
+            </com.example.laurentgander.physiodatavisualization.HeartBeat.HeartBeatView>
         </RelativeLayout>
     </LinearLayout>
     <SurfaceView android:id="@+id/preview"
@@ -33,4 +34,15 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp">
     </SurfaceView>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="30dp" />
+
+    <Button
+        android:id="@+id/return_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Return"
+        />
 </LinearLayout>

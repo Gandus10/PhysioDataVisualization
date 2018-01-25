@@ -1,0 +1,92 @@
+﻿BioRICS:
+
+================================================================================
+|             Avantages                 |               Désavantages            |
+================================================================================
+Interface agréable                          Obligatoire d'avoir le bracelet
+Calendrier de l'état de stress              Login
+Entrée des sources de stress
+Présentation des résultats
+(par moment de la journée)
+Notification quand le
+taux de stress est trop
+élevé
+________________________________________________________________________________
+
+Stress check:
+
+================================================================================
+|             Avantages                 |               Désavantages            |
+================================================================================
+Capteur sur le téléphonne                    Interface moche
+Save et share result                         Login
+Historique                                   Résultat aléatoire
+Donne le pouls grâce à la lumière            Prise de données trop long(2min)
+
+________________________________________________________________________________
+
+
+StressScan:
+
+================================================================================
+|             Avantages                 |               Désavantages            |
+================================================================================
+Capteur sur le téléphonne
+Interface agréable
+Entrée personnel (âge, sexe)
+Heure de sommeil et posture
+Share result
+Memo and location
+Calendrier
+Moyenne
+Entrée de la cénesthésie(sentiment sur soi-même)
+________________________________________________________________________________
+
+StressCheck:
+
+================================================================================
+|             Avantages                 |               Désavantages            |
+================================================================================
+Application différente                        Interface
+Questionnaire                                 Petite application
+Conseils
+Activité anti stress dans l'application
+________________________________________________________________________________
+
+Source de stress :
+
+Travail
+Transport
+Famille
+Voyage
+Décision
+RDV
+Ecole
+
+Activité faites pendant la mesure :
+
+Travail
+Sport
+Repos
+Loisirs
+Transport
+Détente
+
+
+
+Tâches à réaliser
+=================
+
+Créer l'interface graphique du menu
+Créer l'interface graphique pour la visualisation
+Créer l'interface graphique pour l'analyse
+Créer l'interface graphique pour la prise de la mesure vie la capteur
+Connexion avec le serveur de données
+Recevoir le résultat du bracelet
+Afficher le résultat
+Sauvegarde des données
+Recherche sur l'utilisation des capteurs du téléphone
+Utilisation u capteur de l'appareil
+Comparaison le résultat des capteurs et du bracelet
+Mise en place d'un système d'alerte si la personne est stressé
+Log

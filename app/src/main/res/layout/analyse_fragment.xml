@@ -2,7 +2,9 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:id="@+id/analyse_fragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
 
     <SearchView
         android:id="@+id/measureSearchView"

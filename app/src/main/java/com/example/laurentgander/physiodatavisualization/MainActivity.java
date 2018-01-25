@@ -1,5 +1,6 @@
 package com.example.laurentgander.physiodatavisualization;
 
+import android.Manifest;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -7,9 +8,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,10 +23,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.laurentgander.physiodatavisualization.fragments.AnalyseFragment;
-import com.example.laurentgander.physiodatavisualization.fragments.HomeFragment;
-import com.example.laurentgander.physiodatavisualization.fragments.MeasuresFragment;
-import com.example.laurentgander.physiodatavisualization.fragments.VisualisationFragment;
+import com.example.laurentgander.physiodatavisualization.Activity.MeasuresDetailActivity;
+import com.example.laurentgander.physiodatavisualization.Measures.MeasureService;
+import com.example.laurentgander.physiodatavisualization.Measures.MeasureServiceConnection;
+import com.example.laurentgander.physiodatavisualization.Fragments.AnalyseFragment;
+import com.example.laurentgander.physiodatavisualization.Fragments.HomeFragment;
+import com.example.laurentgander.physiodatavisualization.Fragments.MeasuresFragment;
+import com.example.laurentgander.physiodatavisualization.Fragments.VisualisationFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, MeasureServiceConnection {
@@ -34,9 +41,25 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED)
+        {
+            ActivityCompat.requestPermissions( this, new String[] {Manifest.permission.CAMERA}, 1);
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_DENIED)
+        {
+            ActivityCompat.requestPermissions( this, new String[] {Manifest.permission.READ_PHONE_STATE}, 1);
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS) == PackageManager.PERMISSION_DENIED)
+        {
+            ActivityCompat.requestPermissions( this, new String[] {Manifest.permission.RECEIVE_SMS}, 1);
+        }
+
     }
 
     @Override
@@ -45,9 +68,7 @@ public class MainActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        HomeFragment mainFragment = new HomeFragment();
         setSupportActionBar(toolbar);
-        getSupportFragmentManager().beginTransaction().add(R.id.main_fragment, mainFragment).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -75,6 +96,7 @@ public class MainActivity extends AppCompatActivity
         };
         bindService(intent, serviceConnection, Service.BIND_AUTO_CREATE);
 
+
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -96,6 +118,10 @@ public class MainActivity extends AppCompatActivity
             onNavigationItemSelected(navigationView.getMenu().
 
             findItem(R.id.nav_home));
+
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager()
+                .beginTransaction().add(R.id.main_fragment, homeFragment).commit();
     }
 
     @Override

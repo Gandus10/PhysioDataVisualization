@@ -1,0 +1,50 @@
+---
+title: Physio Data Visualization
+subtitle: Projet PA
+lang: fr
+language: french
+author:
+- lastname: Gander
+  firstname: Laurent
+
+responsable:
+- lastname: Rizzotti
+  firstname: Aïcha
+
+
+date: \today
+pagesize: a4
+
+institut:
+  name: Example
+#  logo: Path to your institut logo
+  #logo_scale: 0.6
+
+#project_logo: img/samiral
+#project_logo_scale: 0.4
+
+# styles
+#alignment: <alignment>
+fontsize: 12pt
+colorlinks: darkblue
+
+documentclass: scrreprt
+documentoptions: twoside
+
+numbersections: true
+
+toc: true
+toc-depth: 1
+lof: true
+
+# specify if you want your abstract on title page or on a second page
+abstractontitlepage: false
+
+toc: true
+toc-depth: 1
+lof: true
+
+abstract: |
+    This document is the base config file you have to update
+
+---
