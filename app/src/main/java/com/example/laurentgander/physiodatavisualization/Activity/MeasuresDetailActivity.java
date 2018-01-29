@@ -73,7 +73,7 @@ public class MeasuresDetailActivity extends AppCompatActivity{
             heartBeat.setText( Integer.toString( measure.getHeartBeat()));
             stressIndex.setText( Integer.toString(measure.getStressIndex() ));
             date.setText( measure.getDate().substring( 0,10 ));
-            heure.setText( measure.getDate().substring( 11, 17) );
+            heure.setText( measure.getDate().substring( 11, 16) );
             sommeil.setText( Integer.toString(measure.getSleepingHours() ));
         }
     }

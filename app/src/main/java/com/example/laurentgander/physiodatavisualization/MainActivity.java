@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -197,20 +196,18 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_mesures) {
             MeasuresFragment mesuresFragment = new MeasuresFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment ,mesuresFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace( R.id.main_fragment, mesuresFragment ).commit();
             mesuresFragment.onMeasureServiceConnected();
-        } else if (id == R.id.nav_share) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-    protected void notifyFragmentConnected(int id) {
-    }
+     return true;
+     }
+     protected void notifyFragmentConnected(int id) {
+     }
 
-    /**
+     /**
      * Utility function to call the "onGarbageServiceDisconnected" method of fragments.
      *
      * Note: currently not used by the application, just here for completion. :)

@@ -1,6 +1,7 @@
 package com.example.laurentgander.physiodatavisualization.Fragments;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
@@ -83,9 +84,35 @@ public class MeasuresFragment extends PhysioDataVisualisationFragment {
     }
 
     private void setUpViews(View view, MainActivity activity) {
-        imageButtonCouche.setOnClickListener(v -> position = 1);
-        imageButtonAssis.setOnClickListener(v -> position = 2);
-        imageButtonDebout.setOnClickListener(v -> position = 3);
+        imageButtonCouche.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                position = 1;
+                imageButtonDebout.setBackgroundColor( Color.TRANSPARENT );
+                imageButtonCouche.setBackgroundColor( 0xFF0080FF);
+                imageButtonAssis.setBackgroundColor( Color.TRANSPARENT );
+            }
+        } );
+        imageButtonAssis.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                position = 2;
+                imageButtonDebout.setBackgroundColor( Color.TRANSPARENT );
+                imageButtonCouche.setBackgroundColor( Color.TRANSPARENT );
+                imageButtonAssis.setBackgroundColor( 0xFF0080FF );
+            }
+        } );
+        imageButtonDebout.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                position = 3;
+                imageButtonDebout.setBackgroundColor( 0xFF0080FF );
+                imageButtonCouche.setBackgroundColor( Color.TRANSPARENT );
+                imageButtonAssis.setBackgroundColor( Color.TRANSPARENT );
+
+            }
+
+        } );
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override

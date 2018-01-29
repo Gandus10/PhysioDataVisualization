@@ -38,8 +38,6 @@ public class MeasureService  extends Service{
 
     @Override
     public boolean onUnbind(Intent intent) {
-        //database.close();
-
         return super.onUnbind(intent);
     }
 

@@ -2,6 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+
+
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/home"
@@ -12,25 +14,13 @@
             android:title="Visualisation" />
         <item
             android:id="@+id/nav_analyse"
-            android:icon="@drawable/analyse"
+            android:icon="@drawable/analyse2"
             android:title="Analyse" />
         <item
             android:id="@+id/nav_mesures"
-            android:icon="@drawable/mesures"
+            android:icon="@drawable/index"
             android:title="Mesures" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-        </menu>
-    </item>
+    </group>
 
 </menu>

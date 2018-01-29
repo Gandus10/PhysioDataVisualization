@@ -16,18 +16,18 @@ public class DataBaseMeasures extends SQLiteOpenHelper {
 
     public DataBaseMeasures(Context context) {
 
-        super( context, DATABASE_NAME, null, 7);
+        super( context, DATABASE_NAME, null, 9);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL( MeasureSchema.CREATE_TABLE_QUERY);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL( MeasureSchema.DROP_TABLE_QUERY );
+        onCreate( db );
     }
 
     public static synchronized DataBaseMeasures getInstance(Context context)

@@ -76,8 +76,7 @@ public class VisualisationFragment extends PhysioDataVisualisationFragment{
         spinnerDate.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String s = spinnerDate.getSelectedItem().toString();
-                makeGraph( s );
+                makeGraph( spinnerDate.getSelectedItem().toString() );
             }
 
             @Override
@@ -94,7 +93,7 @@ public class VisualisationFragment extends PhysioDataVisualisationFragment{
         series.resetData(new DataPoint[] {});
         Map<Integer, Integer> tab = new TreeMap<Integer, Integer>(getIndexByHour(list, date));
 
-        for (int i = 0; i < 24; i++)
+        for (int i = 0; i <= 24; i++)
         {
             if(tab.containsKey( i ))
             {
